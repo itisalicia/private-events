@@ -1,1 +1,13 @@
 <h1> Hi, <%= @user.name %> </h1>
+<p> Here is a list of all the events you have created:</p>
+<% if @events.any? %>
+  <ul>
+    <% @events.each do |event| %>
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have not created any events yet.</p>
+<% end %>
