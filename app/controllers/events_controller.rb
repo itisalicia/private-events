@@ -4,6 +4,6 @@ def index
 end
 
 def show
-  @event = Event.fin(params[:id])
+  @event = Event.find(params[:id])
 end
 end
