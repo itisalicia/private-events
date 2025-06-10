@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-root "events#index"
-
-resource :events
+  get "up" => "rails/health#show", as: :rails_health_check
+  devise_for :users
+  root "events#index"
+  resources :events
 end
