@@ -11,3 +11,16 @@
 <% else %>
   <p>You have not created any events yet.</p>
 <% end %>
+
+<h2> Your attended events: </h2>
+<% if @attended_events.any? %>
+  <ul>
+    <% @attended_events.each do |event| %>
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have not attended any events yet.</p>
+<% end %>

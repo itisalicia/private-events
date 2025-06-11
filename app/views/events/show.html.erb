@@ -2,3 +2,19 @@
 <p> Creator of the event : <%= @event.creator.name %>  </p> <br />
 <p> Date of the event : <%= @event.date %> </p> <br />
 <p> Location of the event : <%= @event.location %> </p>
+
+<h3>Wanna join this event ? </h3> <br />
+<%= form_with url: attendances_path do |form| %>
+  <%= form.hidden_field :event_id, value: @event.id %>
+  <%= form.submit "Reserve" %>
+<% end %>
+
+<h3> List of attendees </h3>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+  <% end %>
+</ul>
+<% if @event.attendees.empty? %>
+  <p>No attendees yet.</p>
+<% end %>
